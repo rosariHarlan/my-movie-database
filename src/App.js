@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MoviesBox from "./components/MoviesBox";
+import movies from "./movies";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="gallery">
+      {movies.map((item, index) => (
+        <MoviesBox
+          key={index}
+          title={item.title}
+          year={item.year}
+          director={item.director}
+          duration={item.duration}
+          rate={item.rate}
+          genre={item.genre}
+        />
+      ))}
     </div>
   );
 }

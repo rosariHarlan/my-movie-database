@@ -1,23 +1,25 @@
 import Rating from "./Rating";
 
 const MoviesBox = (props) => {
+  const { title, year, director, duration, genre, rate } = props;
+
   return (
     <div className="flip-card">
       <div className="flip-card-inner">
         <div className="gridItem">
-          <h2>{props.title}</h2>
-          <p>{props.year}</p>
-          <p>{props.director}</p>
-          <p>{props.duration}</p>
-          <p key="genre">
-            {props.genre.map((genre) => (
-              <>
+          <h2>{title}</h2>
+          <p>{year}</p>
+          <p>{director}</p>
+          <p>{duration}</p>
+          <div>
+            {genre.map((genre, index) => (
+              <div key={index}>
                 {genre}
                 <br />
-              </>
+              </div>
             ))}
-          </p>
-          <Rating rating={props.rate} />
+          </div>
+          <Rating rating={rate} />
         </div>
         <div className="flip-card-back">
           <p>

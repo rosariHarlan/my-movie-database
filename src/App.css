@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,14 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #fa4250;
   color: #fa4250;
+}
+
+h1 {
+  color: #fff;
+  font-family: "Londrina Solid", cursive;
+  font-size: 5em;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
 }
 
 .gallery {
@@ -98,8 +107,80 @@ body {
   line-height: 1.5em;
 }
 
-.blur {
-  -webkit-filter: blur(8px);
-          filter: blur(8px);
+button, select, input[name="search"] {
+  background-color: #fff;
+  color: #fa4250;
+  padding: 5px 5px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 1em;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+input[name="search"] {
+  margin-bottom: 0.5em;
+  width: 20em;
+  color: #fa4250;
+}
+
+input[name="search"]:focus {
+  padding-left: 5px;
+}
+
+.accordion {
+  width: 95%;
+  position: relative;
+  left: 2em;
+}
+
+input[name="filter"] {
+  display: none;
+  position: absolute;
+  top: 1em;
+  right: 2em;
+}
+
+input[name="filter"]:checked ~ .accordion-content {
+  height: 4em;
+}
+
+input[name="filter"]:checked + label {
+  font-weight: 600;
+}
+
+input[name="filter"]:checked + label::after {
+  content: "-";
+}
+
+label {
+  color: #fff;
+  position: relative;
+  display: block;
+  font-size: 1.3em;
+  padding-bottom: 0.7em;
+  padding-top: 0.7em;
+  cursor: pointer;
+}
+
+label:hover {
+  text-decoration: underline;
+}
+
+label:after {
+  content: "+";
+  position: absolute;
+  left: 35.5em;
+  width: 1em;
+  height: 1em;
+  font-weight: 600;
+}
+
+.accordion-content {
+  overflow: hidden;
+  height: 0px;
+  position: relative;
 }
 /*# sourceMappingURL=App.css.map */

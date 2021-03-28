@@ -15,7 +15,7 @@ const Rating = (props) => {
 
 export default Rating;
 
-// if (i == stars && hasHalfStar) {
+// if (i === stars && hasHalfStar) {
 //   starImg = "half_star";
 // } else if (i > stars - 1) {
 //   starImg = "full star"

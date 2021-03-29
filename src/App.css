@@ -118,16 +118,47 @@ button, select, input[name="search"] {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2em;
   margin-bottom: 1em;
+  cursor: pointer;
+}
+
+button:active, select:active, input:active[name="search"] {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+select {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 input[name="search"] {
   margin-bottom: 0.5em;
   width: 20em;
   color: #fa4250;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 input[name="search"]:focus {
   padding-left: 5px;
+}
+
+input[name="search"]:active {
+  -webkit-transform: none;
+          transform: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.first-filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .accordion {
@@ -144,7 +175,7 @@ input[name="filter"] {
 }
 
 input[name="filter"]:checked ~ .accordion-content {
-  height: 4em;
+  height: 7em;
 }
 
 input[name="filter"]:checked + label {
@@ -153,6 +184,7 @@ input[name="filter"]:checked + label {
 
 input[name="filter"]:checked + label::after {
   content: "-";
+  left: 36em;
 }
 
 label {
@@ -172,7 +204,7 @@ label:hover {
 label:after {
   content: "+";
   position: absolute;
-  left: 35.5em;
+  left: 36em;
   width: 1em;
   height: 1em;
   font-weight: 600;
@@ -182,5 +214,10 @@ label:after {
   overflow: hidden;
   height: 0px;
   position: relative;
+}
+
+.error {
+  color: #fff;
+  margin-left: 14em;
 }
 /*# sourceMappingURL=App.css.map */

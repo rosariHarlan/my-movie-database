@@ -45,24 +45,19 @@ class App extends React.Component {
     });
   }
 
-  searchByTitle(e) {
-    e.preventDefault();
+  searchByTitle(searchTerm) {
     this.setState({
       movieList: movies.filter((item) =>
-        item.title.toLowerCase().includes(e.target.value.toLowerCase())
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
       ),
     });
-    // if (e.target.value === "12345") {
-    //   console.log("Movie not found");
-    // }
   }
 
-  // showRandom() {
-  //   const randomIndex = Math.floor(Math.random() * movies.length);
-  //   this.setState({
-  //     movieList:
-  //   })
-  // }
+  showRandom() {
+    this.setState({
+      movieList: [movies[Math.floor(Math.random() * movies.length) - 1]],
+    });
+  }
 
   render() {
     return (
@@ -76,19 +71,26 @@ class App extends React.Component {
           sortFromZtoA={(e) => this.sortFromZtoA()}
           sortByGenre={(e) => this.sortByGenre(e)}
           searchByTitle={(e) => this.searchByTitle(e)}
+          showRandom={(e) => this.showRandom()}
         />
         <div className="gallery">
-          {this.state.movieList.map((item, index) => (
-            <MoviesBox
-              key={index}
-              title={item.title}
-              year={item.year}
-              director={item.director}
-              duration={item.duration}
-              rate={item.rate}
-              genre={item.genre}
-            />
-          ))}
+          {this.state.movieList.length > 0 ? (
+            this.state.movieList.map((item, index) => (
+              <MoviesBox
+                key={index}
+                title={item.title}
+                year={item.year}
+                director={item.director}
+                duration={item.duration}
+                rate={item.rate}
+                genre={item.genre}
+              />
+            ))
+          ) : (
+            <h2 className="error">
+              Sorry, but we can't find what you're looking for &#128546;
+            </h2>
+          )}
         </div>
       </div>
     );

@@ -20,6 +20,13 @@ const MoviesBox = (props) => {
             ))}
           </div>
           <Rating rating={rate} />
+          {/* <div className="addToList">
+            <label htmlFor="add">
+              Add to My List
+              <input type="checkbox" name="add" id="add" />
+              <span className="checkmark"></span>
+            </label>
+          </div> */}
         </div>
         <div className="flip-card-back">
           <p>

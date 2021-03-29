@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap");
 
+// --- General Styling ---
+
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +25,8 @@ h1 {
   letter-spacing: 2px;
   margin-bottom: 7px;
 }
+
+// --- Movie grid ---
 
 .gallery {
   display: grid;
@@ -55,11 +59,15 @@ h1 {
   }
 }
 
+// --- Rating ---
+
 .stars {
   width: 1.5em;
   display: inline;
   padding-bottom: 0.5em;
 }
+
+// --- Flip card effect ---
 
 .flip-card {
   perspective: 1000px;
@@ -90,6 +98,8 @@ h1 {
   line-height: 1.5em;
 }
 
+// --- Buttons and input fields ---
+
 button {
   background-color: #fff;
   color: #fa4250;
@@ -101,10 +111,16 @@ button {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2em;
   margin-bottom: 1em;
+  cursor: pointer;
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  }
 }
 
 select {
   @extend button;
+  box-shadow: none;
 }
 
 input[name="search"] {
@@ -112,10 +128,22 @@ input[name="search"] {
   margin-bottom: 0.5em;
   width: 20em;
   color: #fa4250;
+  box-shadow: none;
   &:focus {
     padding-left: 5px;
   }
+  &:active {
+    transform: none;
+    box-shadow: none;
+  }
 }
+
+.first-filters {
+  display: flex;
+  justify-content: center;
+}
+
+// --- Filter accordion ---
 
 .accordion {
   width: 95%;
@@ -131,13 +159,14 @@ input[name="filter"] {
 }
 
 input[name="filter"]:checked ~ .accordion-content {
-  height: 4em;
+  height: 7em;
 }
 
 input[name="filter"]:checked + label {
   font-weight: 600;
   &::after {
     content: "-";
+    left: 36em;
   }
 }
 
@@ -155,7 +184,7 @@ label {
   &:after {
     content: "+";
     position: absolute;
-    left: 35.5em;
+    left: 36em;
     width: 1em;
     height: 1em;
     font-weight: 600;
@@ -167,3 +196,25 @@ label {
   height: 0px;
   position: relative;
 }
+
+// --- Error message ---
+
+.error {
+  color: #fff;
+  margin-left: 14em;
+}
+
+// --- Add to list checkbox ---
+
+// .addToList {
+//   backface-visibility: hidden;
+//   label {
+//     color: #fa4250;
+//   }
+// }
+
+// .checkmark {
+//   border: 1px solid #fa4250;
+//   height: 10px;
+//   width: 100px;
+// }

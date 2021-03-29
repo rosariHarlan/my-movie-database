@@ -1,65 +1,39 @@
 const Filter = (props) => {
-  const yearAscending = () => {
-    props.sortByAscending();
-  };
-
-  const yearDescending = () => {
-    props.sortByDescending();
-  };
-
-  const byBestRate = () => {
-    props.sortByBestRate();
-  };
-
-  const fromAtoZ = () => {
-    props.sortFromAtoZ();
-  };
-
-  const fromZtoA = () => {
-    props.sortFromZtoA();
-  };
-
-  const byGenre = (e) => {
-    props.sortByGenre(e);
-  };
-
-  const byTitle = (e) => {
-    props.searchByTitle(e);
-  };
-
-  // const showRandom = (e) => {
-  //   props.showRandom();
-  // };
-
   return (
     <div>
-      <form>
-        <input
-          onInput={(e) => byTitle(e)}
-          type="search"
-          name="search"
-          id="search"
-          placeholder="Search title"
-        />
-      </form>
-      {/* <button>
-        I can't choose &#128553; Surprise me!
-      </button> */}
+      <div className="first-filters">
+        <form>
+          <input
+            onInput={(e) => props.searchByTitle(e.target.value)}
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search title"
+          />
+        </form>
+        <button onClick={(e) => props.showRandom()}>
+          I can't choose &#128555; Surprise me!
+        </button>
+      </div>
       <div className="accordion">
         <div>
           <input type="checkbox" name="filter" id="filter" />
           <label htmlFor="filter">More Filters</label>
           <div className="accordion-content">
-            <button onClick={(e) => yearAscending()}>
+            <button onClick={(e) => props.sortByAscending()}>
               Sort by Date Ascending
             </button>
-            <button onClick={(e) => yearDescending()}>
+            <button onClick={(e) => props.sortByDescending()}>
               Sort by Date Descending
             </button>
-            <button onClick={(e) => byBestRate()}>Best Rating</button>
-            <button onClick={(e) => fromAtoZ()}>Sort from A - Z</button>
-            <button onClick={(e) => fromZtoA()}>Sort from Z - A</button>
-            <select onChange={(e) => byGenre(e)}>
+            <button onClick={(e) => props.sortByBestRate()}>Best Rating</button>
+            <button onClick={(e) => props.sortFromAtoZ()}>
+              Sort from A - Z
+            </button>
+            <button onClick={(e) => props.sortFromZtoA()}>
+              Sort from Z - A
+            </button>
+            <select onChange={(e) => props.sortByGenre(e)}>
               <option>Choose Genre</option>
               <option value="Action">Action</option>
               <option value="Adventure">Adventure</option>
@@ -83,6 +57,9 @@ const Filter = (props) => {
               <option value="War">War</option>
               <option value="Western">Western</option>
             </select>
+            <button onClick={(e) => window.location.reload(false)}>
+              Clear All Filters
+            </button>
           </div>
         </div>
       </div>
